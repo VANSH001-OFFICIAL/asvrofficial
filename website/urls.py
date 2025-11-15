@@ -1,7 +1,6 @@
 from django.urls import path
 # 🛑 Yeh line wapas use karein 🛑
-from . import views 
-
+import website.views as views
 
 urlpatterns = [
     # --- Authentication Routes ---
@@ -25,6 +24,7 @@ urlpatterns = [
     # ...'''
 
 ]
+
 
 
 
