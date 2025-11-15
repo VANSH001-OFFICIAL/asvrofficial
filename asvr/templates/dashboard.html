@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASVR Gateway - Dashboard</title>
+    <style>
+        /* Basic CSS for clarity */
+        .card { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+        .key-display { background-color: #eee; padding: 10px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>👋 Welcome, {{ user.username }}!</h1>
+
+    <div class="card">
+        <h3>💰 Your Current Balance</h3>
+        <h1>{{ user.asvruser.wallet_balance }} ASVR Tokens</h1>
+    </div>
+
+    <div class="card">
+        <h3>🔑 Your Payment API Credentials</h3>
+        <p>Use these keys to integrate ASVR Payouts into your application.</p>
+        
+        <p><strong>API Key:</strong></p>
+        <div class="key-display">{{ user.asvruser.api_key }}</div> 
+        
+        <p><strong>Secret Token:</strong></p>
+        <div class="key-display">{{ user.asvruser.secret_token }}</div> 
+        
+        <p><a href="{% url 'reset_api_token' %}">Reset API Key/Token</a> (Careful!)</p>
+    </div>
+
+    <div class="card">
+        <h3>🔗 Quick Actions</h3>
+        <ul>
+            <li><a href="{% url 'withdraw' %}">💸 Request Withdrawal (Tokens to Bank)</a></li>
+            <li><a href="{% url 'transaction_history' %}">📜 View Transaction History</a></li>
+            <li><a href="{% url 'api_docs' %}">📄 API Documentation</a></li>
+        </ul>
+    </div>
+    
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+</body>
+</html>

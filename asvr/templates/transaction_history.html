@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASVR - Transaction History</title>
+</head>
+<body>
+    <h2>📜 Transaction History</h2>
+    <p>Current Balance: <strong>{{ current_balance }} ASVR Tokens</strong></p>
+
+    <table border="1" width="100%" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Date/Time</th>
+                <th>Type</th>
+                <th>Transaction ID</th>
+                <th>Amount (Tokens)</th>
+                <th>Recipient</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for txn in transactions %}
+            <tr>
+                <td>{{ txn.created_at|date:"d M Y H:i:s" }}</td>
+                <td><strong>{{ txn.get_type_display }}</strong></td>
+                <td>{{ txn.transaction_id }}</td>
+                
+                {% if txn.type == 'PAYOUT' or txn.type == 'WITHDRAWAL_REQ' %}
+                    <td style="color: red;">- {{ txn.amount }}</td>
+                {% else %}
+                    <td style="color: green;">+ {{ txn.amount }}</td>
+                {% endif %}
+
+                <td>{{ txn.recipient_details|default:"N/A" }}</td>
+                
+                <td>
+                    {% if txn.status == 'SUCCESS' %}
+                        <span style="color: green;">{{ txn.status }}</span>
+                    {% elif txn.status == 'PENDING' %}
+                        <span style="color: orange;">{{ txn.status }}</span>
+                    {% else %}
+                        <span style="color: red;">{{ txn.status }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No transactions found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+</body>
+</html>
