@@ -14,7 +14,19 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed Hosts: Render ki URL yahaan aayegi.
 # Production mein Render ki URL aur domain name daalein.
+# File: website/settings.py
+
+# ...
+# Yeh line aapne 'python-decouple' se li hogi
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1').split(',') 
+
+# Agar aapko error aate rahe, toh temporary taur par yeh line add karein:
+ALLOWED_HOSTS = [
+    '.render.com',  # Render ke saare subdomains accept karega
+    '127.0.0.1'     # Local testing ke liye
+    # Aur apne custom domain ko bhi yahan add karein, agar hai
+]
+# ...
 
 # SECRET_KEY ko environment variable se lein. Kabhi bhi code mein hardcode na karein!
 SECRET_KEY = config('SECRET_KEY')
@@ -49,4 +61,5 @@ INSTALLED_APPS = [
     'website', # Ya jo bhi aapke app ka naam hai
     # ...
 ]
+
 
