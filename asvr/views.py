@@ -3,12 +3,14 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
 from decimal import Decimal
-# File ke top par zaroor add karein:
-from .models import ASVRUser, Transaction 
-# (Agar aapne pehle nahi kiya hai toh)
 
-from .models import ASVRUser # Yeh woh model hai jismein api_key aur balance hai
-from .utils import check_payout_limits # Maan lijiye yeh ek utility function hai
+# 🛑 Sabhi Models ko sirf ek line mein import karein 🛑
+from .models import ASVRUser, Transaction 
+
+# Utils/Helper Functions ko import karein
+from .utils import check_payout_limits 
+
+# ... (baaki views functions yahaan shuru honge)
 
 # --- Payout API Endpoint ---
 
@@ -96,4 +98,5 @@ def transaction_history_view(request):
         'current_balance': user_profile.wallet_balance
     }
     
+
     return render(request, 'transaction_history.html', context)
