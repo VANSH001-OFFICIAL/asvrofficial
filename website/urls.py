@@ -1,5 +1,9 @@
 from django.urls import path
-from . import views
+# Purana (Error de raha hai):
+# from . import views 
+
+# 🛑 Naya (Sahi tareeka) 🛑
+from website import views
 
 urlpatterns = [
     # --- Authentication Routes ---
@@ -20,4 +24,5 @@ urlpatterns = [
     # ... other paths ...
     path('history/', views.transaction_history_view, name='transaction_history'), 
     # ...
+
 ]
