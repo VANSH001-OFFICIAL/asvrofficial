@@ -1,6 +1,10 @@
 # File: settings.py (Update)
 
 import os
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 from decouple import config # Zaroori: python-decouple install karna hoga
 
 # --- Security Settings ---
@@ -27,4 +31,5 @@ DATABASES = {
 
 # Static Files (CSS/JS) Setup for Production (WhiteNoise ya Render's service use karein)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
