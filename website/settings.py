@@ -33,3 +33,20 @@ DATABASES = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+# File: website/settings.py
+
+INSTALLED_APPS = [
+    # ... other default Django apps ...
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    # 🛑 YEH LINE ZAROORI HAI 🛑
+    'django.contrib.staticfiles', 
+    
+    # Aapke custom apps
+    'website', # Ya jo bhi aapke app ka naam hai
+    # ...
+]
+
