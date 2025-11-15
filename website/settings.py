@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
 
 # SECRET_KEY ko environment variable se lein. Kabhi bhi code mein hardcode na karein!
 SECRET_KEY = config('SECRET_KEY')
-
+ROOT_URLCONF = 'website.urls'
 # --- Database Setup (Render par PostgreSQL best hai) ---
 # Yeh code Render ke default database setup ko automatically use karega.
 import dj_database_url
@@ -61,5 +61,6 @@ INSTALLED_APPS = [
     'website', # Ya jo bhi aapke app ka naam hai
     # ...
 ]
+
 
 
