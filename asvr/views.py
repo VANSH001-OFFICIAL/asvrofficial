@@ -9,13 +9,16 @@ from .models import ASVRUser, Transaction
 
 # Utils/Helper Functions ko import karein
 from .utils import check_payout_limits 
+def home_test(request):
+    # Yeh check karne ke liye ki view load ho raha hai
+    return JsonResponse({'status': 'ok', 'message': 'Deployment successful!'}, status=200)
 
 # ... (baaki views functions yahaan shuru honge)
 
 # --- Payout API Endpoint ---
 
 # @csrf_exempt: Isse hattana recommended hai real production mein, par demo ke liye rakhte hain.
-@csrf_exempt
+'''@csrf_exempt
 @require_http_methods(["GET"]) # GET request se data le rahe hain, jaisa ki aapke URL format mein hai
 @transaction.atomic
 def api_payout_handler(request):
@@ -99,4 +102,5 @@ def transaction_history_view(request):
     }
     
 
-    return render(request, 'transaction_history.html', context)
+    return render(request, 'transaction_history.html', context)'''
+
