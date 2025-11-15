@@ -6,7 +6,7 @@ import sys
 def main():
     """Run administrative tasks."""
     # Yahan 'your_project_name' ko apne actual project folder ke naam se badalna hoga!
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'your_project_name.settings') 
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings') 
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
