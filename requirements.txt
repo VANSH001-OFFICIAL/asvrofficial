@@ -3,4 +3,6 @@ Django
 gunicorn  # Production server ke liye zaroori
 psycopg2-binary # Agar PostgreSQL database use karoge Render par
 requests # Telegram aur API calls ke liye
+
 python-decouple # Environment variables ko handle karne ke liye (security ke liye zaroori)
+dj-database-url
