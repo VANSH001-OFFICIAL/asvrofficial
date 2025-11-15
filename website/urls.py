@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     # --- Authentication Routes ---
     path('', views.home_test, name='home'),
-'''    path('register/', views.register_user, name='register'),
+    path('register/', views.register_user, name='register'),
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
     
@@ -24,6 +24,7 @@ urlpatterns = [
     # ...'''
 
 ]
+
 
 
 
