@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+# ... (lines before)
 import os
 import sys
+from django.core.wsgi import get_wsgi_application
 
-def main():
-    """Run administrative tasks."""
-    # Yahan 'your_project_name' ko apne actual project folder ke naam se badalna hoga!
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings') 
-    try:
+# Yahaan 'your_project_name' ko 'website' se badlein
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings')
+
+application = get_wsgi_application()
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
