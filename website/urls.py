@@ -1,9 +1,7 @@
 from django.urls import path
-# from website import views  <-- Yeh line abhi error de rahi hai.
+# 🛑 Yeh line wapas use karein 🛑
+from . import views 
 
-# 🛑 Iske bajaye yeh use karein 🛑
-from . import views
-# Agar yeh bhi fail ho, toh ise 'from .views import *' se badal dein
 
 urlpatterns = [
     # --- Authentication Routes ---
@@ -26,4 +24,5 @@ urlpatterns = [
     # ...
 
 ]
+
 
